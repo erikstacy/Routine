@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
         LoginScreen.id: (context) => LoginScreen(),
         RoutineScreen.id: (context) => RoutineScreen(),
       },
+      theme: ThemeData.dark(),
     );
   }
 }
