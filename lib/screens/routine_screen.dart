@@ -21,12 +21,14 @@ class _RoutineScreenState extends State<RoutineScreen> {
         title: Text('Routines'),
       ),
       drawer: Drawer(
-        child: ListTile(
-          title: Text('Sign Out'),
-          onTap: () {
-            _auth.signOut();
-            Navigator.pushReplacementNamed(context, WelcomeScreen.id);
-          },
+        child: SafeArea(
+          child: ListTile(
+            title: Text('Sign Out'),
+            onTap: () {
+              _auth.signOut();
+              Navigator.pushReplacementNamed(context, WelcomeScreen.id);
+            },
+          ),
         ),
       ),
     );
