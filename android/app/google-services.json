@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "258347351604",
+    "firebase_url": "https://routine-e256b.firebaseio.com",
+    "project_id": "routine-e256b",
+    "storage_bucket": "routine-e256b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:258347351604:android:d129b2ea015c550bdc5461",
+        "android_client_info": {
+          "package_name": "com.example.routine"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "258347351604-7phil6tcim3cqb921g2cm3m8mcve8cca.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvLZDr2kneXAgNexhNcVE8mCEtwmg96sE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "258347351604-7phil6tcim3cqb921g2cm3m8mcve8cca.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
