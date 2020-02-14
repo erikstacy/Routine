@@ -53,7 +53,7 @@ class _EditRoutineScreenState extends State<EditRoutineScreen> {
 
             // Changed title - New Task
             if (startingTitle != titleController.text && widget.routine == null) {
-              _db.createNewTask(user, widget.routine.id, titleController.text);
+              _db.createRoutine(user, titleController.text);
             }
 
             Navigator.pop(context);

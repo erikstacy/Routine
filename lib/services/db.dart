@@ -83,7 +83,7 @@ class DatabaseService {
     }, merge: true);
   }
 
-  void createRoutine(FirebaseUser user, String routineId, String value) {
+  void createRoutine(FirebaseUser user, String value) {
     _db.collection('users').document(user.uid).collection('routines').add({
       'title': value,
       'isDone': false,

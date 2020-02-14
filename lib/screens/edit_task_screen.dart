@@ -21,7 +21,7 @@ class EditTaskScreen extends StatefulWidget {
 }
 
 class _EditTaskScreenState extends State<EditTaskScreen> {
-
+  
   TextEditingController titleController = TextEditingController();
 
   DatabaseService _db = DatabaseService(); 

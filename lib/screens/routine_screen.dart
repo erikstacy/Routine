@@ -7,6 +7,7 @@ import 'package:routine/screens/welcome_screen.dart';
 import 'package:routine/services/auth.dart';
 import 'package:routine/services/db.dart';
 import 'package:routine/services/models.dart';
+import 'package:routine/shared/loader.dart';
 
 class RoutineScreen extends StatefulWidget {
 
@@ -44,23 +45,27 @@ class _RoutineScreenState extends State<RoutineScreen> {
       body: StreamBuilder(
         stream: _db.streamRoutineList(user),
         builder: (context, snapshot) {
-          List<Routine> routineList = snapshot.data;
+          if (!snapshot.hasData) {
+            return LoadingScreen();
+          } else {
+            List<Routine> routineList = snapshot.data;
 
-          return ListView.builder(
-            itemCount: routineList.length,
-            itemBuilder: (context, index) {
-              Routine routine = routineList[index];
+            return ListView.builder(
+              itemCount: routineList.length,
+              itemBuilder: (context, index) {
+                Routine routine = routineList[index];
 
-              return ListTile(
-                title: Text(routine.title),
-                onTap: () {
-                  Navigator.push(context, MaterialPageRoute(
-                    builder: (context) => TaskScreen(routine: routine,),
-                  ));
-                },
-              );
-            },
-          );
+                return ListTile(
+                  title: Text(routine.title),
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (context) => TaskScreen(routine: routine,),
+                    ));
+                  },
+                );
+              },
+            );
+          }
         },
       ),
       floatingActionButton: FloatingActionButton(
