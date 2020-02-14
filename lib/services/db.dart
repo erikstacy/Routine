@@ -28,18 +28,6 @@ class DatabaseService {
 
   /*
 
-    Futures
-
-  */
-
-  String getReminderTitle(FirebaseUser user, String routineId) {
-    _db.collection('users').document(user.uid).collection('routines').document(routineId).get().then((doc) {
-      return doc.data['title'];
-    });
-  }
-
-  /*
-
    Writes
 
   */
