@@ -8,6 +8,7 @@ import 'package:routine/screens/routine_screen.dart';
 import 'package:routine/screens/task_screen.dart';
 import 'package:routine/screens/welcome_screen.dart';
 import 'package:routine/services/auth.dart';
+import 'package:routine/services/models.dart';
 
 void main() => runApp(MyApp());
 
@@ -20,7 +21,6 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         StreamProvider<FirebaseUser>.value(value: _auth.user),
-        //StreamProvider<Task>.value(value: Tas)
       ],
       child: MaterialApp(
         initialRoute: WelcomeScreen.id,
