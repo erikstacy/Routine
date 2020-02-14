@@ -49,7 +49,7 @@ class _TaskScreenState extends State<TaskScreen> {
                     child: Text(routine.title),
                     onTap: () {
                       Navigator.push(context, MaterialPageRoute(
-                        builder: (context) => EditRoutineScreen(routine: widget.routine,),
+                        builder: (context) => EditRoutineScreen(routine: routine,),
                       ));
                     },
                   ),
