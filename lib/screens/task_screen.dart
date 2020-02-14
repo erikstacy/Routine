@@ -42,12 +42,10 @@ class _TaskScreenState extends State<TaskScreen> {
             appBar: AppBar(
               title: GestureDetector(
                 child: Text(widget.routine.title),
-                onTap: () async {
-                  await Navigator.push(context, MaterialPageRoute(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(
                     builder: (context) => EditRoutineScreen(routine: widget.routine,),
                   ));
-
-                  setState(() {});
                 },
               ),
               actions: <Widget>[
