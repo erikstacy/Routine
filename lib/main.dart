@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:routine/screens/edit_task_screen.dart';
 import 'package:routine/screens/login_screen.dart';
 import 'package:routine/screens/register_screen.dart';
 import 'package:routine/screens/routine_screen.dart';
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         StreamProvider<FirebaseUser>.value(value: _auth.user),
+        //StreamProvider<Task>.value(value: Tas)
       ],
       child: MaterialApp(
         initialRoute: WelcomeScreen.id,
@@ -28,6 +30,7 @@ class MyApp extends StatelessWidget {
           LoginScreen.id: (context) => LoginScreen(),
           RoutineScreen.id: (context) => RoutineScreen(),
           TaskScreen.id: (context) => TaskScreen(),
+          EditTaskScreen.id: (context) => EditTaskScreen(),
         },
         theme: ThemeData.dark(),
       ),

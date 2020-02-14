@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:routine/screens/edit_routine_screen.dart';
 import 'package:routine/screens/task_screen.dart';
 import 'package:routine/screens/welcome_screen.dart';
 import 'package:routine/services/auth.dart';
@@ -60,6 +61,17 @@ class _RoutineScreenState extends State<RoutineScreen> {
               );
             },
           );
+        },
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(
+          Icons.add,
+        ),
+        onPressed: () {
+          Routine newRoutine;
+          Navigator.push(context, MaterialPageRoute(
+            builder: (context) => EditRoutineScreen(routine: newRoutine,),
+          ));
         },
       ),
     );
