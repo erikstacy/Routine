@@ -8,12 +8,16 @@ class DatabaseService {
 
   Stream<List<Routine>> streamRoutineList(FirebaseUser user) {
     var ref = _db.collection('users').document(user.uid).collection('routines');
-
     return ref.snapshots().map((list) => list.documents.map((doc) => Routine.fromFirestore(doc)).toList());
   }
 
   Stream<Routine> streamRoutine(FirebaseUser user, String id) {
     return _db.collection('users').document(user.uid).collection('routines').document(id).snapshots().map((snap) => Routine.fromFirestore(snap));
+  }
+
+  Stream<List<Task>> streamTaskList(FirebaseUser user, String routineId) {
+    var ref = _db.collection('users').document(user.uid).collection('routines').document(routineId).collection('tasks');
+    return ref.snapshots().map((list) => list.documents.map((doc) => Task.fromFirestore(doc)).toList());
   }
 
 }

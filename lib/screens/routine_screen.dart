@@ -54,7 +54,7 @@ class _RoutineScreenState extends State<RoutineScreen> {
                 title: Text(routine.title),
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(
-                    builder: (context) => TaskScreen(routineId: routine.id,),
+                    builder: (context) => TaskScreen(routine: routine,),
                   ));
                 },
               );

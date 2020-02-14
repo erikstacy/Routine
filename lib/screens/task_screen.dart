@@ -8,10 +8,10 @@ class TaskScreen extends StatefulWidget {
 
   static String id = 'task_screen';
 
-  String routineId;
+  Routine routine;
 
   TaskScreen({
-    this.routineId,
+    this.routine,
   });
 
   @override
@@ -27,33 +27,33 @@ class _TaskScreenState extends State<TaskScreen> {
 
     var user = Provider.of<FirebaseUser>(context);
 
-    return StreamBuilder(
-      stream: _db.streamRoutine(user, widget.routineId),
-      builder: (context, snap) {
-        Routine routine = snap.data;
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.routine.title),
+      ),
+      body: StreamBuilder(
+        stream: _db.streamTaskList(user, widget.routine.id),
+        builder: (context, snapshot) {
+          List<Task> taskList = snapshot.data;
 
-        return Scaffold(
-          appBar: AppBar(
-            title: Text(routine.title),
-          ),
-          body: ListView.builder(
-            itemCount: routine.taskList.length,
+          return ListView.builder(
+            itemCount: taskList.length,
             itemBuilder: (context, index) {
-              Task task = routine.taskList[index];
+              Task task = taskList[index];
 
               return ListTile(
                 title: Text(task.title),
                 trailing: Checkbox(
                   value: task.isDone,
                   onChanged: (value) {
-                    // Todo - make this work
+                    // Todo - Implement this
                   },
                 ),
               );
             },
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }
